@@ -1,0 +1,14 @@
+.active{
+	font-family:consolas;
+	color:blue;
+}
+body{
+	margin:1em 10%;
+	background-color: #E6E6FA
+}
+div{
+	background-color: white;
+	padding: 10px;
+	display: block;
+
+}

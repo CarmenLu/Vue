@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>index</title>
+    <link  rel="stylesheet" href="index.css">
+    <script src="vue.js"></script>
+</head>
+<body>
+
+<!------安装-------->
+<div id="install">
+    <h2>安装</h>
+    <p>
+	直接下载并用 script 标签引入，Vue 会被注册为一个全局变量。
+	<p>
+	<p>
+	<a href ="https://vuejs.org/js/vue.min.js">生产版本(删除了警告，30.90KB min+gzip)</a></p>
+	<p>
+	<a href = "https://vuejs.org/js/vue.js">开发版本(包含完整的警告和调试模式)</a>
+    </p>
+</div>
+
+<!------介绍-------->
+<div id="intro">
+    <h2>介绍</h2>
+	<span v-bind:title="message1">查看当前时间</span>
+	<div>
+	{{message}}</div>
+	<input v-model="message">
+	<button v-on:click="reverseMessage">逆转信息</button>
+
+	<ol>
+		<li v-for='todo in todos'>{{todo.text}}</li>
+	</ol>
+</div>
+
+<!------Vue实例------>
+<div id="instance">
+    <h2>Vue实例</h2>
+    <p>{{data.a}}</p>
+    <button v-on:click="a = 'hello'">Change"1"to"Hello"</button>
+</div>
+
+<!-----模板语法----->
+<div id="grammer">
+    <h2>模板语法</h2>
+        <span v-once> 使用v-once 指令，能执行一次性地插值，当数据改变时，插值处的内容不会更新：{{message}}</span>		
+		<p>Using mustaches: {{rawHtml}}</p>
+		<p>Using v-html directive: <span v-html="rawHtml"></span></p>
+
+</div>
+
+<!-----Class 与 Style 绑定----->
+<div id="ClaandSty">
+    <h2>Class 与 Style 绑定</h2>
+<p>可以传给 v-bind:class 一个对象，并可以在对象中传入更多属性来动态切换多个class。</p>
+<div class="static"
+     v-bind:class="{ 'text-danger': hasError }">
+</div>
+<p>可以把一个数组传给 v-bind:class，以应用一个 class 列表。</p>
+<div v-bind:class="[activeClass,errorClass]"></div>
+<div class="isActive">可以用v-bind:style绑定一个内联样式对象</div>
+<button v-onclick="Change">改变颜色字体</button>
+</div>
+
+<!-----条件渲染----->
+<div id="condition">
+    <h2>条件渲染</h2>
+	<template v-if="now">
+	<p>正在用v-else-if!这些元素必须紧跟在带 v-if 或者 v-else-if 的元素的后面，否则它将不会被识别。</p>
+	</template>
+	<template v-else-if="other">
+	<p>Vue 会尽可能高效地渲染元素，通常会复用已有元素而不是从头开始渲染。可以用key->唯一的值来管理可复用的元素</p>
+	</template>
+	<template v-else>
+	<p v-show="ok">Hello!I am here</p>
+	</template>
+	<button @click="change">new tips</button>
+	<button @click="show1">come and find me</button>
+</div>
+
+<!------列表渲染----->
+<div id="List">
+    <h2>列表渲染</h2>
+	<ul>
+	<li v-for="(value,key) in object">
+	{{key}}:{{value}}
+	</li>
+	</ul>
+</div>
+
+<!------事件处理----->
+<div id="Event">
+    <h2>事件处理</h2>
+	<div>
+	<input v-model="message" v-on:keyup.enter="submit">	</div>
+  <button @click="say('你是猪吗')">打开有惊喜</button>
+</div>
+
+<!------表单输入----->
+<div id="Form">
+    <h2>表单输入</h2>
+<span v-if="seen"><p>多行文本</p>
+<p style="white-space: pre-line;"></p>
+<br>
+<textarea v-model="message"></textarea></span>
+<input type="checkbox" id="checkbox" v-model="seen">
+<label for="checkbox">{{ seen }}</label>
+</div>
+
+<script src="index.js"></script>
+</body>
+</html>
